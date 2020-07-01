@@ -1,0 +1,359 @@
+import { Head, Image, Appear } from "mdx-deck";
+import Code from "mdx-code";
+import { CodeSurfer } from "mdx-deck-code-surfer";
+
+import { Flex, Text } from "rebass";
+
+import { Cover, Img } from "./Cover";
+import { Api } from "./Api";
+import { Koajs } from "./Koajs";
+import { ApiExample } from "./ApiExample";
+import { Api2 } from "./Api2";
+import { Intro } from "./Intro";
+import { Thanks } from "./Thanks";
+import { Feedback } from "./Feedback";
+import { Architecture } from "./api/Architecture";
+import { Resources } from "./api/Resources";
+import { Versioning } from "./api/Versioning";
+import { Operations } from "./api/Operations";
+import { Operations2 } from "./api/Operations2";
+import { KoaCover } from "./koa/KoaCover";
+import { Cascading } from "./koa/Cascading";
+import { Auth } from "./koa/Auth";
+import { ErrorHandlingOverview } from "./koa/ErrorHandlingOverview";
+import { TestCover } from "./test/TestCover";
+import { Supertest } from "./test/Supertest";
+
+export { default as theme } from "./theme";
+
+<Head>
+  <title>Building Rest APIs with koa-js</title>
+</Head>
+
+<Cover />
+---
+
+<Intro />
+---
+
+## API
+<Api />
+---
+
+## KoaJS
+<Koajs />
+---
+
+## Testing your API
+<ul>
+    <li>Jest</li>
+    <li>Fixtures</li>
+    <li>Supertest</li>
+    <li>MongoDB</li>
+</ul>
+---
+
+## API - what is
+<Api2 />
+---
+
+## Example
+<ApiExample />
+---
+
+## Common APIs
+<ul>
+  <Appear>
+    <li>Facebook and Gmail login</li>
+    <li>NASA</li>
+    <li>Google Maps</li>
+    <li>Pokemon</li>
+  </Appear>
+</ul>
+---
+
+## Rest Architecture
+<Architecture />
+
+---
+
+## Resources
+
+<Resources />
+
+---
+
+## Resources Examples
+
+<ul>
+  <Appear>
+    <li>/users</li>
+    <li>/companies</li>
+    <li>/areas</li>
+  </Appear>
+</ul>
+
+---
+
+## Resources Examples - how don't nominate
+
+<ul>
+  <li>/getUsers</li>
+  <li>/companies/udpate</li>
+  <li>/areas/delete</li>
+</ul>
+---
+
+## Versioning
+<Versioning />
+---
+
+## Operations
+<Operations />
+---
+
+## Operations
+<Operations2 />
+---
+
+## Operations Examples
+<Flex flexDirection="column">
+  <Img src={"../img/http_verbs3.png"} />
+  <Text fontSize="10px">
+    https://www.restapitutorial.com/lessons/httpmethods.html
+  </Text>
+</Flex>
+---
+
+<KoaCover/>
+---
+
+<CodeSurfer
+  title="Small footprint - Hello World"
+  code={require('!raw-loader!./koa/KoaHelloWorld.tsx')}
+  showNumbers={false}
+  dark={true}
+  lang="jsx"
+  steps={[
+    { notes: "The obligatory hello world application" },
+  ]}
+/>
+---
+
+## Cascading
+<Cascading />
+---
+
+<CodeSurfer
+  title="Cascading - Example"
+  code={require('!raw-loader!./koa/CascadingExample.tsx')}
+  showNumbers={false}
+  dark={true}
+  lang="jsx"
+  steps={[
+    { notes: '' },
+    { range: [4, 10], notes: "" },
+    { range: [12, 20], notes: "" },
+    { range: [21, 40], notes: "" },
+  ]}
+/>
+---
+
+## Router Module
+<ul>
+  <li>Express-style routing using app.get, app.put, app.post, etc.</li>
+  <li>Named URL parameters.</li>
+  <li>Named routes with URL generation.</li>
+  <li>Responds to OPTIONS requests with allowed methods.</li>
+  <li>Support for 405 Method Not Allowed and 501 Not Implemented.</li>
+  <li>Multiple route middleware.</li>
+  <li>Multiple routers.</li>
+  <li>Nestable routers.</li>
+  <li>ES7 async/await support.</li>
+  <a href='https://github.com/ZijianHe/koa-router'>https://github.com/ZijianHe/koa-router</a>
+</ul>
+---
+
+## Auth
+<Auth />
+---
+
+<CodeSurfer
+  title="Auth - Example"
+  code={require('!raw-loader!./koa/AuthFunction.tsx')}
+  showNumbers={false}
+  dark={true}
+  lang="jsx"
+  steps={[
+    { notes: '' },
+    { range: [5, 11], notes: "Validating token" },
+    { range: [13, 16], notes: "Decoding token" },
+    { range: [18, 26], notes: "Validating user from token" },
+    { range: [27, 29], notes: "Setting user on context" },
+  ]}
+/>
+---
+
+<CodeSurfer
+  title="Auth - Example"
+  code={require('!raw-loader!./koa/AppAuthFunction.tsx')}
+  showNumbers={false}
+  dark={true}
+  lang="jsx"
+  steps={[
+    { notes: '' },
+    { range: [5, 9], notes: "koa router" },
+    { range: [11, 20], notes: "Open routes" },
+    { range: [21, 30], notes: "Auth routes" },
+  ]}
+/>
+---
+
+## Context
+
+<p>A Context is created per request, and is referenced in middleware as the receiver, or the ctx identifier, as shown in the following snippet:</p>
+
+```ts
+app.use(async ctx => {
+  ctx; // is the Context
+  ctx.request; // is a Koa Request
+  ctx.response; // is a Koa Response
+});
+```
+---
+
+## Context
+<ul>
+  <li>Unified object</li>
+  <li>Methods and accessors</li>
+  <li>Encapsulate request and response object</li>
+  <li>Set value to be used as like</li>
+</ul>
+---
+
+## Error Handling
+<ErrorHandlingOverview/>
+---
+<CodeSurfer
+  title="Error Handling - Example"
+  code={require('!raw-loader!./koa/ErrorHandling.tsx')}
+  showNumbers={false}
+  dark={true}
+  lang="jsx"
+  steps={[
+    { notes: '' },
+    { range: [1, 9], notes: "" },
+    { range: [10, 20], notes: "Centralizing error handling" },
+  ]}
+/>
+---
+## Testing your API
+<TestCover />
+---
+
+## Supertest
+ <Supertest />
+---
+
+ <CodeSurfer
+   title="Supertest Example"
+   code={require('!raw-loader!./test/SupertestExample.tsx')}
+   showNumbers={false}
+   dark={true}
+   lang="jsx"
+   steps={[
+     { notes: '' },
+   ]}
+ />
+---
+
+ <CodeSurfer
+   title="Supertest Calls Example"
+   code={require('!raw-loader!./test/SupertestCallsExample.tsx')}
+   showNumbers={false}
+   dark={true}
+   lang="jsx"
+   steps={[
+     { notes: '' },
+     { range: [6, 25], notes: "GET" },
+     { range: [26, 40], notes: "POST" },
+     { range: [41, 60], notes: "DELETE" },
+   ]}
+ />
+---
+
+## Fixture
+<ul>
+  <Appear>
+    <li>Avoid repeated issues</li>
+    <li>make easier your life or for who will test your api</li>
+    <li>save time</li>
+    <li>production</li>
+    <li>infinity</li>
+    <li>works perfectly with monorepo</li>
+  </Appear>
+</ul>
+---
+
+ <CodeSurfer
+   title="Create Tenant Fixture"
+   code={require('!raw-loader!./test/CreateTenant.tsx')}
+   showNumbers={false}
+   dark={true}
+   lang="jsx"
+   steps={[
+     { notes: '' },
+   ]}
+ />
+---
+
+ <CodeSurfer
+   title="Create User Fixture"
+   code={require('!raw-loader!./test/CreateUser.tsx')}
+   showNumbers={false}
+   dark={true}
+   lang="jsx"
+   steps={[
+     { notes: '' },
+   ]}
+ />
+---
+
+ <CodeSurfer
+   title="Get or Create Model Fixture"
+   code={require('!raw-loader!./test/getOrCreate.tsx')}
+   showNumbers={false}
+   dark={true}
+   lang="jsx"
+   steps={[
+     { notes: '' },
+   ]}
+ />
+---
+
+ <CodeSurfer
+   title="Simple Get User Test"
+   code={require('!raw-loader!./test/UserGetTest.tsx')}
+   showNumbers={false}
+   dark={true}
+   lang="jsx"
+   steps={[
+     { notes: '' },
+   ]}
+ />
+---
+
+## Learn in public
+
+<p>Monorepo to find all of these thigs learned today!</p>
+<ul>
+ <li><a href='https://github.com/daniloab/fullstack-playground'>https://github.com/daniloab/fullstack-playground</a></li>
+ <li>Issues to contribute with open source</li>
+ <li>Playground</li>
+</ul>
+---
+
+## <Thanks />
+---
+
+<Feedback />
